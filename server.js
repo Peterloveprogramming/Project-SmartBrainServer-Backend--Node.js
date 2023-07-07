@@ -42,8 +42,8 @@ app.post("/register",(req,res)=>{register.handleRegister(req,res,db,bcrypt)})
 app.get('/profile/:id',(req,res)=>{profile.profileHandler(req,res,db)})
 app.put('/image',(req,res)=>{image.imageHandler(req,res,db)}) 
 app.post('/imageURL',(req,res)=>{image.APIhandler(req,res)})  
-app.listen(3000,()=>{
-	console.log("it is running on port 3000")
+app.listen(process.env.PORT || 3000,()=>{
+	console.log(`it is running on port ${process.env.PORT}`)
 })
 
 /* 

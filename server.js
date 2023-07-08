@@ -8,14 +8,13 @@ const signin = require('./Controller/signin')
 const image = require('./Controller/image')
 const profile = require('./Controller/profile')
 
+process.env.NODE_TLS_REJECT_UNAUTHORIZED = 0; 
+
 const db = knex({
   client: 'pg',
-  connection: {
-    host : '127.0.0.1',
-    port : 5432,
-    user : 'postgres',
-    password : 'test',
-    database : 'SmartBrainDataBase'
+  connectionString: process.env.DATABASE_URL,
+  ssl: {
+    rejectUnauthorized: false
   }
 });
 
